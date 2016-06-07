@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+  public static void main(String[] args) {
+    //Declare scanner
+    Scanner myScan = new Scanner(System.in);
+    //Set the variable equal to the scanner next int to get the number
+    int n = myScan.nextInt();
+    int remainder=0,seqLength=0,lngSeq=0; //Declare the remainder, sequence, and the length of the consecutive numbers 
+    //Loop until the number is equal to zero  
+    while(n>0){
+        remainder= n%2; // Take the mod of our number to see if there is a remainder
+        n= n/2;//divide our number by two to continue out base 2 conversions
+        //If our remainder is equal to 1 add to the sequence count
+        if(remainder==1){   
+           seqLength ++;
+           //if our current sequence length is greater than our longest sequence, update our longest sequence 
+            if(seqLength>=lngSeq){
+            lngSeq=seqLength; 
+            }
+        }
+        //If there is no remainder, the base 2 number should be zero, resetting our sequence length
+        else{
+        seqLength = 0;
+        }   
+    }//end While
+    //Once the loop has been completed, print the longest sequence length
+    System.out.println(lngSeq);
+}
+}
